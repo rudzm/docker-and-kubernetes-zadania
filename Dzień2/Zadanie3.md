@@ -334,9 +334,9 @@
               - secretKeyRef:
                   name: mysecret
         ```
-    - Utworzenie sekretu:
+    - Utworzenie pods z sekretem i ConfigMap:
         ```bash
-        kubectl apply -f configmap.yaml
+        kubectl apply -f pod-with-cm-and-secret.yaml
         ```
 
 </details>
