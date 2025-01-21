@@ -205,7 +205,7 @@
 7. Utwórz PersistentVolume i PersistentVolumeClaim oraz przypisz je do poda.
 
 - <details>
-<summary>Instrukcja krok po kroku</summary>
+  <summary>Instrukcja krok po kroku</summary>
 
   - Plik `pv.yaml`:
      ```yaml
@@ -262,5 +262,81 @@
     ```bash
     kubectl apply -f pod-with-pvc.yaml
     ```
+
+</details>
+
+8. Utworzenie sekretu
+
+- <details>
+  <summary>Instrukcja krok po kroku</summary>
+
+    - Plik `secret.yaml` który wykorzystamy w podzie:
+        ```yaml
+        apiVersion: v1
+        kind: Secret
+        metadata:
+            name: mysecret
+        type: Opaque
+        data:
+            password: d3d3MTIz
+        ```
+    - Utworzenie sekretu:
+        ```bash
+        kubectl apply -f secret.yaml
+        ```
+
+</details>
+
+8. Utworzenie CnfigMapy
+
+- <details>
+  <summary>Instrukcja krok po kroku</summary>
+
+    - Plik `configmap.yaml` który wykorzystamy w podzie:
+        ```yaml
+        apiVersion: v1
+        kind: ConfigMap
+        metadata:
+            name: mycm
+        data:
+            key: value
+            config-file: |
+                key: value
+                key2: value2
+        ```
+    - Utworzenie sekretu:
+        ```bash
+        kubectl apply -f configmap.yaml
+        ```
+
+</details>
+
+9. Załadowanie ConfigMap i Secret do poda:
+
+8. Utworzenie CnfigMapy
+
+- <details>
+  <summary>Instrukcja krok po kroku</summary>
+
+    - Plik `pod-with-cm-and-secret.yaml` który wykorzystamy w podzie:
+        ```yaml
+        apiVersion: v1
+        kind: Pod
+        metadata:
+            name: nginx-pod-with-configmap
+        spec:
+            containers:
+            - name: nginx
+              image: nginx:latest
+              envFrom:
+              - configMapKeyRef:
+                  name: mycm
+              - secretKeyRef:
+                  name: mysecret
+        ```
+    - Utworzenie sekretu:
+        ```bash
+        kubectl apply -f configmap.yaml
+        ```
 
 </details>
