@@ -181,23 +181,24 @@
      ```
   </details>
   
-  - ExternalName
+  - External Name
   <details>
   <summary>Instrukcja krok po kroku</summary>
-  - Utwórz usługę ExternalName:
-     ```yaml
-     apiVersion: v1
-     kind: Service
-     metadata:
-       name: externalname-service
-     spec:
-       type: ExternalName
-       externalName: google.com
-     ```
-  - Zastosuj manifest:
-     ```bash
-     kubectl apply -f externalname-service.yaml
-     ```
+  
+    - Utwórz usługę ExternalName:
+      ```yaml
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: externalname-service
+      spec:
+        type: ExternalName
+        externalName: google.com
+      ```
+    - Zastosuj manifest:
+      ```bash
+      kubectl apply -f externalname-service.yaml
+      ```
   </details>
 
 </details>
@@ -313,7 +314,7 @@
 
 9. Załadowanie ConfigMap i Secret do poda:
 
-8. Utworzenie CnfigMapy
+8. Utworzenie ConfigMapy
 
 - <details>
   <summary>Instrukcja krok po kroku</summary>
