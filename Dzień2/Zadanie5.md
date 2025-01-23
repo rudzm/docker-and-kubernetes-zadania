@@ -75,19 +75,19 @@
         apiVersion: networking.k8s.io/v1
         kind: Ingress
         metadata:
-            name: hello-world-ingress
+          name: hello-world-ingress
         spec:
-            rules:
+          rules:
             - host: hello.local
-            http:
-                paths:
-                - path: /
-                pathType: Prefix
-                backend:
-                    service:
-                    name: hello-world-service
-                    port:
-                        number: 80
+          http:
+            paths:
+              - path: /
+            pathType: Prefix
+            backend:
+              service: null
+              name: hello-world-service
+              port:
+                number: 80
         ```
 
         ```bash
