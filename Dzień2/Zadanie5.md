@@ -86,8 +86,8 @@
                   backend:
                     service: 
                       name: hello-world-service
-                        port:
-                          number: 80
+                      port:
+                        number: 80
         ```
 
         ```bash
