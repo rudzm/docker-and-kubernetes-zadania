@@ -77,6 +77,7 @@
         metadata:
           name: hello-world-ingress
         spec:
+          ingressClassName: nginx
           rules:
             - host: hello.local
               http:
