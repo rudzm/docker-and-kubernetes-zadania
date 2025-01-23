@@ -79,15 +79,15 @@
         spec:
           rules:
             - host: hello.local
-          http:
-            paths:
-              - path: /
-            pathType: Prefix
-            backend:
-              service: null
-              name: hello-world-service
-              port:
-                number: 80
+              http:
+                paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service: 
+                      name: hello-world-service
+                        port:
+                          number: 80
         ```
 
         ```bash
