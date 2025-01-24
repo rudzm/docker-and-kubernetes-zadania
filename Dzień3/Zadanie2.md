@@ -5,39 +5,36 @@
 - **Job:**
   ```yaml
     apiVersion: batch/v1
-    kind: Job
+      kind: Job
     metadata:
-    name: example-job
+      name: example-job
     spec:
-    template:
+      template:
         metadata:
-        name: example-job
+          name: example-job
         spec:
-        containers:
-        - name: busybox
+          containers:
+          - name: busybox
             image: busybox:latest
             command: ["/bin/sh", "-c", "echo Hello Kubernetes! && sleep 10"]
-        restartPolicy: Never
-    backoffLimit: 4
   ```
 
 - **CronJob:**
   ```yaml
     apiVersion: batch/v1
-    kind: CronJob
+      kind: CronJob
     metadata:
-    name: example-cronjob
+      name: example-cronjob
     spec:
-    schedule: "*/5 * * * *"
-    jobTemplate:
+      schedule: "*/5 * * * *"
+      jobTemplate:
         spec:
-        template:
+          template:
             spec:
-            containers:
-            - name: busybox
+              containers:
+              - name: busybox
                 image: busybox:latest
                 command: ["/bin/sh", "-c", "echo This task runs every 5 minutes"]
-            restartPolicy: Never
   ```
 
 1. Utwórz Job, który wypisuje w logach wiadomość "Hello Kubernetes!" i kończy się po wykonaniu zadania.
