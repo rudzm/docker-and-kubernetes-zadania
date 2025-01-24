@@ -27,22 +27,22 @@
 - **Stateful Set:**
   ```yaml
     apiVersion: apps/v1
-    kind: StatefulSet
+      kind: StatefulSet
     metadata:
-    name: mongo
+      name: mongo
     spec:
-    serviceName: "mongo"
-    replicas: 3
+      serviceName: "mongo"
+      replicas: 3
     selector:
         matchLabels:
-        app: mongo
+          app: mongo
     template:
         metadata:
-        labels:
+          labels:
             app: mongo
         spec:
-        containers:
-        - name: mongo
+          containers:
+          - name: mongo
             image: mongo:latest
             ports:
             - containerPort: 27017
@@ -52,10 +52,10 @@
     volumeClaimTemplates:
     - metadata:
         name: mongo-data
-        spec:
+      spec:
         accessModes: ["ReadWriteOnce"]
         resources:
-            requests:
+          requests:
             storage: 10Gi
     ```
 
