@@ -9,13 +9,13 @@
         apiVersion: v1
         kind: Pod
         metadata:
-            name: pod-my-app
-            labels:
+          name: pod-my-app
+          labels:
             app: my-app
         spec:
-            containers:
+          containers:
             - name: nginx
-            image: nginx:latest
+              image: nginx:latest
         ```
         ```bash
         kubectl apply -f pod-my-app.yaml
@@ -26,12 +26,12 @@
         apiVersion: v1
         kind: Pod
         metadata:
-            name: pod-frontend
-            labels:
+          name: pod-frontend
+          labels:
             role: frontend
         spec:
-            containers:
-            - name: busybox
+          containers:
+          - name: busybox
             image: busybox
             command:
                 - sleep
@@ -47,15 +47,14 @@
         kind: NetworkPolicy
         metadata:
             name: allow-specific-ingress
-            namespace: default
         spec:
-            podSelector:
+          podSelector:
             matchLabels:
-                app: my-app
-            policyTypes:
-            - Ingress
-            ingress:
-            - from:
+              app: my-app
+          policyTypes:
+          - Ingress
+          ingress:
+          - from:
             - podSelector:
                 matchLabels:
                     role: frontend
