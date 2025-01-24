@@ -1,5 +1,28 @@
 # Zadanie 8
 
+**Instalacja `Metric Server`**
+
+1. **Pobierz Metric Server**
+  ```bash
+  wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  ```
+
+2. Dodaj wpis do konfiguracji
+  ```yaml
+  spec:
+      containers:
+      - args:
+        - --cert-dir=/tmp
+        - --secure-port=10250
+        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - --kubelet-use-node-status-port
+        - --kubelet-insecure-tls <---- Ten wpis
+        - --metric-resolution=15s
+        image: registry.k8s.io/metrics-server/metrics-server:v0.7.2
+
+  ```
+
+
 **Przykład konfiguracji HPA:**
 
 1. **Utwórz Deployment:**
