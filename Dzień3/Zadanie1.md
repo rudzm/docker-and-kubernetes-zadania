@@ -36,7 +36,7 @@
     selector:
         matchLabels:
           app: mongo
-    template:
+      template:
         metadata:
           labels:
             app: mongo
@@ -48,15 +48,15 @@
             - containerPort: 27017
             volumeMounts:
             - name: mongo-data
-            mountPath: /data/db
-    volumeClaimTemplates:
-    - metadata:
-        name: mongo-data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 10Gi
+              mountPath: /data/db
+      volumeClaimTemplates:
+      - metadata:
+          name: mongo-data
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
     ```
 
 - **Przykład Operatora (RabbitMQ):**
