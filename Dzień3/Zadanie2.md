@@ -36,7 +36,7 @@
               - name: busybox
                 image: busybox:latest
                 command: ["/bin/sh", "-c", "echo This task runs every 5 minutes"]
-            restartPolicy: Never
+              restartPolicy: Never
   ```
 
 1. Utwórz Job, który wypisuje w logach wiadomość "Hello Kubernetes!" i kończy się po wykonaniu zadania.
