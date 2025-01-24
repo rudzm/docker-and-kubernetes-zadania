@@ -27,13 +27,13 @@
 - **Stateful Set:**
   ```yaml
     apiVersion: apps/v1
-      kind: StatefulSet
+    kind: StatefulSet
     metadata:
       name: mongo
     spec:
       serviceName: "mongo"
       replicas: 3
-    selector:
+      selector:
         matchLabels:
           app: mongo
       template:
