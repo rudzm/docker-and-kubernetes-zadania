@@ -65,18 +65,17 @@
     apiVersion: rabbitmq.com/v1beta1
     kind: RabbitmqCluster
     metadata:
-    name: my-rabbitmq
-    namespace: rabbitmq
+      ame: my-rabbitmq
     spec:
-    replicas: 3 # Liczba replik w klastrze
-    resources:
+      replicas: 3 # Liczba replik w klastrze
+      resources:
         requests:
-        memory: 256Mi
-        cpu: 250m
+          memory: 256Mi
+          cpu: 250m
         limits:
-        memory: 512Mi
-        cpu: 500m
-    storage:
+          memory: 512Mi
+          cpu: 500m
+      storage:
         storageClassName: standard # Zmień na odpowiednią klasę Storage
         volumeSize: 1Gi
   ```
