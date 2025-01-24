@@ -65,7 +65,7 @@
     apiVersion: rabbitmq.com/v1beta1
     kind: RabbitmqCluster
     metadata:
-      ame: my-rabbitmq
+      name: my-rabbitmq
     spec:
       replicas: 3 # Liczba replik w klastrze
       resources:
@@ -75,9 +75,7 @@
         limits:
           memory: 512Mi
           cpu: 500m
-      storage:
-        storageClassName: standard # Zmień na odpowiednią klasę Storage
-        volumeSize: 1Gi
+
   ```
 
 1. Utwórz DaemonSet uruchamiający `us-west1-docker.pkg.dev/my-project/hello-repo/hello-app` na wszystkich węzłach klastra.
