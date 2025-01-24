@@ -123,8 +123,7 @@
         ```
     - Dodaj repo RabbitMQ
         ```bash
-        helm repo add vmware-tanzu https://vmware-tanzu.github.io helm-charts 
-        helm repo update
+        kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml"
         ```
 
     - Instalacja operatora
