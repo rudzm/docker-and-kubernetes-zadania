@@ -5,7 +5,7 @@
 - **Job:**
   ```yaml
     apiVersion: batch/v1
-      kind: Job
+    kind: Job
     metadata:
       name: example-job
     spec:
@@ -17,12 +17,13 @@
           - name: busybox
             image: busybox:latest
             command: ["/bin/sh", "-c", "echo Hello Kubernetes! && sleep 10"]
+          restartPolicy: Never
   ```
 
 - **CronJob:**
   ```yaml
     apiVersion: batch/v1
-      kind: CronJob
+    kind: CronJob
     metadata:
       name: example-cronjob
     spec:
@@ -35,6 +36,7 @@
               - name: busybox
                 image: busybox:latest
                 command: ["/bin/sh", "-c", "echo This task runs every 5 minutes"]
+            restartPolicy: Never
   ```
 
 1. Utwórz Job, który wypisuje w logach wiadomość "Hello Kubernetes!" i kończy się po wykonaniu zadania.
